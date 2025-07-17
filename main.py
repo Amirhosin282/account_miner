@@ -64,14 +64,6 @@ if platform.system == 'Linux': # select os for chose driver type
 elif platform.system == 'Windows':
     path = Service('./config/chromedriver.exe')
 
-try :
-    # set chrome driver
-    driver = webdriver.Chrome(service=path)
-except :
-    print(Fore.RED, "You do not have the required drivers, please download the Selenium driver for Google Chrome from the relevant site or GitHub at: github.com/amirhosin282/account-maker and place it in the main directory of the tool, next to the main file.")
-    sleep(10)
-    os._exit(0)
-
 print (Fore.YELLOW, line, Fore.GREEN)
 # start procses
 for i in range(send_number):
@@ -88,27 +80,94 @@ for i in range(send_number):
     password = "Aa@123456"
     email = random.choice([email1, email2, email3])
 
+    # get use selenium 
+    try :
+        # set chrome driver
+        driver = webdriver.Chrome(service=path)
+    except :
+        print(Fore.RED, "You do not have the required drivers, please download the Selenium driver for Google Chrome from the relevant site or GitHub at: github.com/amirhosin282/account-maker and place it in the main directory of the tool, next to the main file.")
+        sleep(10)
+        os._exit(0)
 
-    # create log
-    log = f"{account_id}   {username}              {password}        {email}            {real_date} ----- {real_time()} \n"
+    try:
+        # open link in chrome
+        driver.get("https://www.instagram.com/accounts/emailsignup/")
 
-    # save log on output file
-    with open("./data/output.txt", "a+") as log_file:
-        log_file.writable()
-        log_file.write(str(log))
+        # send email or phone to fild 1
+        f1 = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[2]/div/label/input"))
+        ).send_keys(email)
 
-    # show to user
-    print(log)
+        # send password to fild 2
+        f2 = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[3]/div/label/input"))
+        ).send_keys(password)
 
-    # remove and rebuild number file
-    os.remove("./data/.numb.txt")
-    with open("data/.numb.txt", "w+", encoding="utf-8") as account_numb:
-        account_numb.write(str(int(ac_numb) + 1))
+        # send random word to fild 3
+        f3 = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[4]/div/label/input"))
+        ).send_keys(str(RandomWords().get_random_word()))
 
-    # remove and rebuild id file
-    os.remove("./data/.save_file.txt")
-    with open("data/.save_file.txt", "w+", encoding="utf-8") as save_file:
-        save_file.write(str(int(account_id) + 1))
+        # send random username to last fild (4)
+        f4 = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[5]/div/label/input"))
+        ).send_keys(username)
 
-# close driver
-driver.close()
+        # click on next bottom
+        b1 = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[6]/div"))
+        ).click()
+        sleep(10)
+
+        # get birthday
+        b2 = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div/div[4]/div/div/span/span[3]/select"))
+        )
+        Select(b2).select_by_value("2000")
+
+        # click to next bottom
+        b3 = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div/div[6]"))
+        ).click()
+
+        # skip reCAPTCHA
+        input("skip reCAPTCHA and pres on enter")
+
+        # click to next bottom
+        b4 = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div/div[4]/button"))
+        ).click()
+
+        # get confirm code
+        input("input confirm code and press enter")
+
+        # click to next bottom
+        b5 = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div[2]/form/div/div[2]/div"))
+        ).click()
+
+        # create log
+        log = f"{account_id}   {username}              {password}        {email}            {real_date} ----- {real_time()} \n"
+
+        # show to user
+        print(Fore.GREEN, "Success", Fore.WHITE, log)
+
+        # save log on output file
+        with open("./data/output.txt", "a+") as log_file:
+            log_file.writable()
+            log_file.write(str(log))
+
+        # remove and rebuild number file
+        os.remove("./data/.numb.txt")
+        with open("data/.numb.txt", "w+", encoding="utf-8") as account_numb:
+            account_numb.write(str(int(ac_numb) + 1))
+
+        # remove and rebuild id file
+        os.remove("./data/.save_file.txt")
+        with open("data/.save_file.txt", "w+", encoding="utf-8") as save_file:
+            save_file.write(str(int(account_id) + 1))
+
+    except:
+        log = f"{account_id}   {username}              {password}        {email}            {real_date} ----- {real_time()} \n"
+        # show to user
+        print(Fore.RED, "Faild", Fore.WHITE, log)
