@@ -174,6 +174,10 @@ python main.py
 
 ---
 
+## تمام نسخه ها: 
+<br>
+<a href = "https://github.com/Amirhosin282/account_miner/releases"> all versins<a>
+
 ## 🧾 نمونه خروجی
 
 ```
