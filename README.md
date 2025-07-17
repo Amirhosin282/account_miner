@@ -3,7 +3,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Selenium](https://img.shields.io/badge/Selenium-4.0%2B-orange)
-![Windows](https://img.shields.io/badge/Windows-CLI-lightgrey)
+![Windows/Linux](https://img.shields.io/badge/Windows-CLI-lightgrey)
 
 A fun and powerful tool to **automate Instagram account creation** using Selenium.  
 Built just for learning and experimentation — **not for abuse**.
@@ -93,7 +93,7 @@ id         username                password          E-mail             date and
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Selenium](https://img.shields.io/badge/Selenium-4.0%2B-orange)
-![Windows](https://img.shields.io/badge/Windows-CLI-lightgrey)
+![Windows/Linux](https://img.shields.io/badge/Windows-CLI-lightgrey)
 
 یه ابزار جالب و خودکار برای ساخت چندتا حساب اینستاگرامی 😎  
 این ابزار برای **یادگیری و آزمایش شخصی** ساخته شده. لطفاً ازش **سوءاستفاده نکن!**
