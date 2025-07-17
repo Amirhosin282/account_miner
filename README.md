@@ -82,7 +82,7 @@ python main.py
 
 ## versions : 
 <br>
-<a, href = "https://github.com/Amirhosin282/account_miner/releases"> all versins<a> 
+<a href = "https://github.com/Amirhosin282/account_miner/releases"> all versins<a> 
 
 ## 🧾 Output Example
 
