@@ -177,4 +177,4 @@ id         username                password          E-mail             date and
 1          user123                Aa@123456         test@mail.com      2025-07-17 -- 10:15:30
 ```
 
-![Version Timeline](https://capsule-render.vercel.app/api?type=rect&color=gradient&height=5&section=footer)
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=80&section=footer&fontSize=30)
