@@ -93,40 +93,45 @@ for i in range(send_number):
         # open link in chrome
         driver.get("https://www.instagram.com/accounts/emailsignup/")
 
+        # cookies
+        b1 = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div[1]/div/div[2]/div/div/div/div/div[2]/div/button[1]"))
+        ).click()
+
         # send email or phone to fild 1
         f1 = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[2]/div/label/input"))
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[4]/div/label/input"))
         ).send_keys(email)
 
         # send password to fild 2
         f2 = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[3]/div/label/input"))
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[5]/div/label/input"))
         ).send_keys(password)
 
         # send random word to fild 3
         f3 = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[4]/div/label/input"))
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[6]/div/label/input"))
         ).send_keys(str(RandomWords().get_random_word()))
 
         # send random username to last fild (4)
         f4 = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[5]/div/label/input"))
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[7]/div/label/input"))
         ).send_keys(username)
 
         # click on next bottom
-        b1 = WebDriverWait(driver, 20).until(
+        b2 = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[6]/div"))
         ).click()
         sleep(10)
 
         # get birthday
-        b2 = WebDriverWait(driver, 20).until(
+        b3 = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div/div[4]/div/div/span/span[3]/select"))
         )
-        Select(b2).select_by_value("2000")
+        Select(b3).select_by_value("2000")
 
         # click to next bottom
-        b3 = WebDriverWait(driver, 20).until(
+        b4 = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div/div[6]"))
         ).click()
 
@@ -134,7 +139,7 @@ for i in range(send_number):
         input("skip reCAPTCHA and pres on enter")
 
         # click to next bottom
-        b4 = WebDriverWait(driver, 20).until(
+        b5 = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div/div[4]/button"))
         ).click()
 
@@ -142,7 +147,7 @@ for i in range(send_number):
         input("input confirm code and press enter")
 
         # click to next bottom
-        b5 = WebDriverWait(driver, 20).until(
+        b6 = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div[2]/form/div/div[2]/div"))
         ).click()
 
@@ -167,7 +172,17 @@ for i in range(send_number):
         with open("data/.save_file.txt", "w+", encoding="utf-8") as save_file:
             save_file.write(str(int(account_id) + 1))
 
+        # close page
+        try:
+            driver.close()
+        except:
+            pass
+
     except:
         log = f"{account_id}   {username}              {password}        {email}            {real_date} ----- {real_time()} \n"
         # show to user
         print(Fore.RED, "Faild", Fore.WHITE, log)
+        try:
+            driver.close()
+        except:
+            pass
