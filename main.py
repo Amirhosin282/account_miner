@@ -67,6 +67,7 @@ elif platform.system == 'Windows':
 print (Fore.YELLOW, line, Fore.GREEN)
 # start procses
 for i in range(send_number):
+    print(Fore.WHITE)
 
     # open number and id file
     with open ("./data/.numb.txt", "r+", encoding="utf-8") as account_numb:
@@ -120,14 +121,15 @@ for i in range(send_number):
 
         # click on next bottom
         b2 = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[6]/div"))
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[9]/div/button"))
         ).click()
-        sleep(10)
+        sleep(15)
 
         # get birthday
         b3 = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div/div[4]/div/div/span/span[3]/select"))
         )
+        sleep(10)
         Select(b3).select_by_value("2000")
 
         # click to next bottom
@@ -151,11 +153,15 @@ for i in range(send_number):
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div[2]/form/div/div[2]/div"))
         ).click()
 
+        sleep(5)
+
+        print("\n")
+
         # create log
         log = f"{account_id}   {username}              {password}        {email}            {real_date} ----- {real_time()} \n"
 
         # show to user
-        print(Fore.GREEN, "Success", Fore.WHITE, log)
+        print("\n", Fore.GREEN, "Success", Fore.WHITE, log)
 
         # save log on output file
         with open("./data/output.txt", "a+") as log_file:
