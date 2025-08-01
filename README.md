@@ -32,18 +32,20 @@ Built just for learning and experimentation — **not for abuse**.
 ## 📁 Project Structure
 
 ```
+
 ├── config/
 │   ├── chromedriver          # ChromeDriver for Linux
 │   ├── chromedriver.exe      # ChromeDriver for Windows
 │   ├── config.py             # Configs, imports, helpers
-│   └── __init__.py
+│   └── **init**.py
 ├── data/
 │   ├── .numb.txt             # Username number counter
-│   ├── .save_file.txt        # Account ID counter
+│   ├── .save\_file.txt        # Account ID counter
 │   └── output.txt            # Created account logs
 ├── main.py                   # Main script to run the program
-└── requirment.txt            # Python dependencies
-```
+└── requirements.txt          # Python dependencies
+
+````
 
 ---
 
@@ -52,37 +54,48 @@ Built just for learning and experimentation — **not for abuse**.
 - Python 3.11 (recommended)
 - Selenium 4.10.0
 - Google Chrome browser
-- Matching version of ChromeDriver
+- Matching version of ChromeDriver (automatically selected based on your OS)
 
 Install packages:
 
 ```bash
-pip install -r requirment.txt
-```
+pip install -r requirements.txt
+````
 
 ---
 
 ## 🚀 How to Use
 
-1. Put the right `chromedriver` file in the `config/` folder.
-2. Run the main script:
+1. Run the main script:
 
 ```bash
 python main.py
 ```
 
-3. Enter 3 emails or phone numbers (used for verification).
-4. Choose how many accounts to create.
-5. Manually:
-   - Solve the reCAPTCHA
-   - Enter the confirmation code
-6. You're done! 🎉 Accounts will be saved in `data/output.txt`.
+2. Enter 3 emails or phone numbers (used for verification)
+3. Choose how many accounts to create
+4. Manually:
+
+   * Solve the reCAPTCHA (see note below)
+   * Enter the confirmation code
+5. You're done! 🎉 Accounts will be saved in `data/output.txt`
+
+> 🔒 **Note on reCAPTCHA:**
+> Instagram uses Google’s reCAPTCHA to prevent automated signups.
+> This tool **does not bypass** it automatically.
+> You must **manually solve the CAPTCHA and input the verification code** during each signup — this is intentional for legal and ethical reasons.
+
+> 🌍 **Important Note:**
+> To avoid errors or incomplete signups, **you must change your IP address to Switzerland** using VPN or proxy tools.
+> This is due to regional differences in how Instagram handles account creation.
 
 ---
 
-## versions : 
-<br>
-<a href = "https://github.com/Amirhosin282/account_miner/releases"> all versins<a> 
+## 🔖 All Versions
+
+➡️ [See All Releases](https://github.com/Amirhosin282/account_miner/releases)
+
+---
 
 ## 🧾 Output Example
 
@@ -91,7 +104,9 @@ id         username                password          E-mail             date and
 1          user123                Aa@123456         test@mail.com      2025-07-17 -- 10:15:30
 ```
 
-![Version Timeline](https://capsule-render.vercel.app/api?type=rect&color=gradient&height=5&section=footer)
+![Version Timeline](https://capsule-render.vercel.app/api?type=rect\&color=gradient\&height=5\&section=footer)
+
+---
 
 #  ماینر حساب اینستاگرام
 
@@ -99,27 +114,27 @@ id         username                password          E-mail             date and
 ![Selenium](https://img.shields.io/badge/Selenium-4.0%2B-orange)
 ![Windows/Linux](https://img.shields.io/badge/Windows-CLI-lightgrey)
 
-یه ابزار جالب و خودکار برای ساخت چندتا حساب اینستاگرامی 😎  
-این ابزار برای **یادگیری و آزمایش شخصی** ساخته شده. لطفاً ازش **سوءاستفاده نکن!**
+ابزاری کاربردی برای **ساخت خودکار حساب اینستاگرام** با استفاده از Selenium 🚀
+ساخته شده صرفاً برای یادگیری و آزمایش — لطفاً از آن **سوءاستفاده نکنید.**
 
 ---
 
 ## ✨ قابلیت‌ها
 
-- ✍️ پر کردن خودکار فرم ثبت‌نام اینستاگرام
-- 📲 استفاده از ایمیل یا شماره‌هایی که وارد می‌کنی
-- 🗂 ذخیره مشخصات حساب‌ها در `data/output.txt`
-- 🎨 ترمینال رنگی + بنرهای جذاب ASCII
-- 🧩 قابلیت عبور دستی از reCAPTCHA و وارد کردن کد تأیید
-- 💻 اجرا روی ویندوز و لینوکس
+* ✍️ پر کردن خودکار فرم ثبت‌نام اینستاگرام
+* 📲 استفاده از ایمیل یا شماره تلفن جهت تأیید
+* 🗂 ذخیره اطلاعات حساب‌ها در فایل `data/output.txt`
+* 🎨 ترمینال رنگی با انیمیشن‌های جالب ASCII
+* 🧩 انجام مراحل کپچا و تأیید دستی
+* 💻 قابل اجرا روی ویندوز و لینوکس
 
 ---
 
 ## ⚠️ هشدار
 
-> این ابزار فقط برای **آموزش و تست شخصی** طراحی شده.  
-> استفاده‌ی نادرست ازش ممکنه خلاف [قوانین استفاده از اینستاگرام](https://help.instagram.com/581066165581870) باشه.  
-> **مسئولیت استفاده با خودته.**
+> این ابزار فقط برای اهداف **آموزشی و اخلاقی** توسعه داده شده است.
+> استفاده‌ی نادرست ممکن است خلاف [قوانین اینستاگرام](https://help.instagram.com/581066165581870) باشد.
+> **مسئولیت استفاده از آن با شماست.**
 
 ---
 
@@ -136,47 +151,59 @@ id         username                password          E-mail             date and
 │   ├── .save_file.txt        # شمارنده آیدی
 │   └── output.txt            # خروجی حساب‌ها
 ├── main.py                   # فایل اصلی اجرای برنامه
-└── requirment.txt            # کتابخونه‌های پایتون
+└── requirements.txt          # کتابخانه‌های پایتون
 ```
 
 ---
 
 ## ⚙️ پیش‌نیازها
 
-- پایتون 3.11 (پیشنهاد میشه)
-- Selenium نسخه 4.10.0
-- مرورگر Google Chrome
-- ChromeDriver متناسب با مرورگرت
+* پایتون 3.11 (پیشنهادی)
+* Selenium نسخه 4.10.0
+* مرورگر Google Chrome
+* ChromeDriver متناسب با مرورگر (انتخاب خودکار بر اساس سیستم‌عامل)
 
-نصب کتابخونه‌ها:
+نصب کتابخانه‌ها:
 
 ```bash
-pip install -r requirment.txt
+pip install -r requirements.txt
 ```
 
 ---
 
 ## 🚀 روش استفاده
 
-1. درایور مناسب سیستم‌عاملتو بذار تو پوشه `config/`
-2. اجرای اسکریپت:
+1. اسکریپت اصلی را اجرا کنید:
 
 ```bash
 python main.py
 ```
 
-3. سه ایمیل یا شماره تلفن وارد کن (برای تأیید حساب‌ها)
-4. تعداد حساب‌هایی که می‌خوای بسازی رو وارد کن
-5. دستی:
-   - reCAPTCHA رو حل کن
-   - کد تأیید رو وارد کن
-6. تمام! 🎉 اطلاعات حساب‌ها توی `data/output.txt` ذخیره می‌شه
+2. سه ایمیل یا شماره تلفن وارد کنید (برای تأیید حساب‌ها)
+3. تعداد حساب‌هایی که می‌خواهید ایجاد شوند را مشخص کنید
+4. به‌صورت دستی:
+
+   * کپچا (reCAPTCHA) را حل کنید (توضیحات پایین را ببینید)
+   * کد تأیید را وارد کنید
+5. تمام! 🎉 اطلاعات حساب‌ها در فایل `data/output.txt` ذخیره می‌شوند
+
+> 🔒 **درباره کپچا (reCAPTCHA):**
+> اینستاگرام از کپچای گوگل برای جلوگیری از ربات‌ها استفاده می‌کند.
+> این ابزار هیچ تلاشی برای عبور خودکار از کپچا ندارد.
+> لازم است شما **به‌صورت دستی کپچا را حل کرده و کد تأیید را وارد کنید.**
+> این محدودیت برای رعایت اصول اخلاقی و قوانین پلتفرم‌هاست.
+
+> 🌍 **نکته مهم:**
+> برای عملکرد صحیح و بدون خطا، **آی‌پی خود را به کشور سوئیس تغییر دهید** (با استفاده از VPN یا ابزارهای مشابه).
+> به‌دلیل تفاوت در روند ثبت‌نام در کشورهای مختلف، ممکن است در برخی کشورها با خطا روبه‌رو شوید.
 
 ---
 
-## تمام نسخه ها: 
-<br>
-<a href = "https://github.com/Amirhosin282/account_miner/releases"> all versins<a>
+## 🔖 نسخه‌ها
+
+➡️ [مشاهده تمام نسخه‌ها](https://github.com/Amirhosin282/account_miner/releases)
+
+---
 
 ## 🧾 نمونه خروجی
 
@@ -185,4 +212,4 @@ id         username                password          E-mail             date and
 1          user123                Aa@123456         test@mail.com      2025-07-17 -- 10:15:30
 ```
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=80&section=footer&fontSize=30)
+![Footer](https://capsule-render.vercel.app/api?type=waving\&color=gradient\&height=80\&section=footer\&fontSize=30)

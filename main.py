@@ -59,9 +59,9 @@ send_number = int(input("Enter the number of accounts you want to create(just nu
 
 # open selenium driver
 path = ''
-if platform.system == 'Linux': # select os for chose driver type
+if platform.system() == 'Linux': # select os for chose driver type
     path = Service('./config/chromedriver')
-elif platform.system == 'Windows':
+elif platform.system() == 'Windows':
     path = Service('./config/chromedriver.exe')
 
 print (Fore.YELLOW, line, Fore.GREEN)
@@ -94,10 +94,14 @@ for i in range(send_number):
         # open link in chrome
         driver.get("https://www.instagram.com/accounts/emailsignup/")
 
+
         # cookies
-        b1 = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div[1]/div/div[2]/div/div/div/div/div[2]/div/button[1]"))
-        ).click()
+        try:
+            b1 = WebDriverWait(driver, 8).until(
+                EC.element_to_be_clickable((By.XPATH, "/html/body/div[3]/div[1]/div/div[2]/div/div/div/div/div[2]/div/button[1]"))
+            ).click()
+        except:
+            pass
 
         # send email or phone to fild 1
         f1 = WebDriverWait(driver, 20).until(
@@ -120,16 +124,16 @@ for i in range(send_number):
         ).send_keys(username)
 
         # click on next bottom
+        sleep(2)
         b2 = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[9]/div/button"))
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[8]/div"))
         ).click()
-        sleep(15)
+        sleep(5)
 
         # get birthday
         b3 = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div/div[4]/div/div/span/span[3]/select"))
         )
-        sleep(10)
         Select(b3).select_by_value("2000")
 
         # click to next bottom
@@ -138,22 +142,40 @@ for i in range(send_number):
         ).click()
 
         # skip reCAPTCHA
-        input("skip reCAPTCHA and pres on enter")
+        sleep(5)
+        if driver.find_elements(By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div/div[4]/button"):
+            input("skip reCAPTCHA and pres on enter")
 
-        # click to next bottom
-        b5 = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div/div[4]/button"))
-        ).click()
+            # click to next bottom
+            b5 = WebDriverWait(driver, 20).until(
+                EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div/div[4]/button"))
+            ).click()
 
         # get confirm code
-        input("input confirm code and press enter")
+        confirm_code = input("input confirm code and press enter: ").strip()
+
+        if confirm_code == '':
+            pass
+        else :
+            fc = WebDriverWait(driver, 20).until(
+                EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[1]/div[2]/form/div/div[1]/input"))
+            ).send_keys(str(confirm_code))
 
         # click to next bottom
         b6 = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div/div[2]/form/div/div[2]/div"))
         ).click()
 
-        sleep(5)
+        # accsept coocies
+        sleep(3)
+        try:
+            b7 = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/div[3]/div/div/div[1]/div/div/div/div"))
+            ).click()
+        except:
+            pass
+
+        sleep(3)
 
         print("\n")
 
@@ -177,6 +199,7 @@ for i in range(send_number):
         os.remove("./data/.save_file.txt")
         with open("data/.save_file.txt", "w+", encoding="utf-8") as save_file:
             save_file.write(str(int(account_id) + 1))
+
 
         # close page
         try:
