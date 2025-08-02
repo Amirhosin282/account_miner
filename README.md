@@ -4,6 +4,7 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Selenium](https://img.shields.io/badge/Selenium-4.0%2B-orange)
 ![Windows/Linux](https://img.shields.io/badge/Windows-CLI-lightgrey)
+<a href = "https://github.com/Amirhosin282/account_miner/blob/main/LICENSE.md"> <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"> </a>
 
 A fun and powerful tool to **automate Instagram account creation** using Selenium.  
 Built just for learning and experimentation — **not for abuse**.
@@ -113,6 +114,7 @@ id         username                password          E-mail             date and
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Selenium](https://img.shields.io/badge/Selenium-4.0%2B-orange)
 ![Windows/Linux](https://img.shields.io/badge/Windows-CLI-lightgrey)
+<a href = "https://github.com/Amirhosin282/account_miner/blob/main/LICENSE.md"> <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"> </a>
 
 ابزاری کاربردی برای **ساخت خودکار حساب اینستاگرام** با استفاده از Selenium 🚀
 ساخته شده صرفاً برای یادگیری و آزمایش — لطفاً از آن **سوءاستفاده نکنید.**
