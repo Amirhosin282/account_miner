@@ -79,7 +79,7 @@ python main.py
 
    * Solve the reCAPTCHA (see note below)
    * Enter the confirmation code
-5. You're done! 🎉 Accounts will be saved in `data/output.txt`
+5. You're done! 🎉 Accounts will be saved in `data/output.xlsx`
 
 > 🔒 **Note on reCAPTCHA:**
 > Instagram uses Google’s reCAPTCHA to prevent automated signups.
@@ -125,7 +125,7 @@ id         username                password          E-mail             date and
 
 * ✍️ پر کردن خودکار فرم ثبت‌نام اینستاگرام
 * 📲 استفاده از ایمیل یا شماره تلفن جهت تأیید
-* 🗂 ذخیره اطلاعات حساب‌ها در فایل `data/output.txt`
+* 🗂 ذخیره اطلاعات حساب‌ها در فایل `data/output.xlsx`
 * 🎨 ترمینال رنگی با انیمیشن‌های جالب ASCII
 * 🧩 انجام مراحل کپچا و تأیید دستی
 * 💻 قابل اجرا روی ویندوز و لینوکس
