@@ -15,6 +15,7 @@ try:
     from random_word import RandomWords
     from datetime import datetime
     import random
+    from openpyxl import Workbook, load_workbook
 except:
     print ("error!, You don't have the required libraries. install from requirment or active virtual envirment (for linux users) - recommended versions : python3.11.* and selenium 4.10.0")
     exit()
@@ -43,6 +44,18 @@ if __name__ == '__main__': # sey to user
 
 line = "___________________________________________________________________________________________                                                                                   "
 
+def write_log_excel(account_id, username, password, email, date, time):
+    path = './data/output.xlsx'
+    if not os.path.exists(path):
+        wb = Workbook()
+        ws = wb.active
+        ws.append(["ID", "Username", "Password", "Email", "Date", "Time"])
+        wb.save(path)
+
+    wb = load_workbook(path)
+    ws = wb.active
+    ws.append([account_id, username, password, email, date, time])
+    wb.save(path)
 
 def view(a, b): # app banner
 

@@ -15,7 +15,7 @@ Built just for learning and experimentation — **not for abuse**.
 
 - 🔄 Auto-fills Instagram signup form
 - 📧 Uses your emails or phone numbers for verification
-- 📝 Logs created accounts in `data/output.txt`
+- 📝 Logs created accounts in `data/output.xlsx`
 - 🌈 Colorful terminal + cool ASCII animations
 - 🧠 Handles reCAPTCHA and manual confirmation steps
 - 💻 Works on both **Windows** and **Linux**
@@ -35,18 +35,18 @@ Built just for learning and experimentation — **not for abuse**.
 ```
 
 ├── config/
-│   ├── chromedriver          # ChromeDriver for Linux
-│   ├── chromedriver.exe      # ChromeDriver for Windows
 │   ├── config.py             # Configs, imports, helpers
-│   └── **init**.py
+│   └── __init__.py
 ├── data/
 │   ├── .numb.txt             # Username number counter
-│   ├── .save\_file.txt        # Account ID counter
-│   └── output.txt            # Created account logs
+│   ├── .save_file.txt        # Account ID counter
+│   └── output.xlsx           # Created account logs
+├── chromedriver              # ChromeDriver for Linux
+├── chromedriver.exe          # ChromeDriver for Windows
 ├── main.py                   # Main script to run the program
 └── requirements.txt          # Python dependencies
 
-````
+```
 
 ---
 
@@ -144,14 +144,14 @@ id         username                password          E-mail             date and
 
 ```
 ├── config/
-│   ├── chromedriver          # درایور برای لینوکس
-│   ├── chromedriver.exe      # درایور برای ویندوز
 │   ├── config.py             # تنظیمات و توابع اصلی
 │   └── __init__.py
 ├── data/
 │   ├── .numb.txt             # شمارنده نام کاربری
 │   ├── .save_file.txt        # شمارنده آیدی
-│   └── output.txt            # خروجی حساب‌ها
+│   └── output.xlsx           # خروجی حساب‌ها
+├── chromedriver.exe          # درایور برای ویندوز
+├── chromedriver              # درایور برای لینوکس
 ├── main.py                   # فایل اصلی اجرای برنامه
 └── requirements.txt          # کتابخانه‌های پایتون
 ```
@@ -187,7 +187,7 @@ python main.py
 
    * کپچا (reCAPTCHA) را حل کنید (توضیحات پایین را ببینید)
    * کد تأیید را وارد کنید
-5. تمام! 🎉 اطلاعات حساب‌ها در فایل `data/output.txt` ذخیره می‌شوند
+5. تمام! 🎉 اطلاعات حساب‌ها در فایل `data/output.xlsx` ذخیره می‌شوند
 
 > 🔒 **درباره کپچا (reCAPTCHA):**
 > اینستاگرام از کپچای گوگل برای جلوگیری از ربات‌ها استفاده می‌کند.

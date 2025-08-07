@@ -5,17 +5,8 @@ numb = open("data/.save_file.txt", "a+")
 numb.close()
 numb = open("data/.save_file.txt", "r+")
 if str(numb.read()) == "":
-    numb.writable()
     numb.write("1")
 numb.close()
-
-data = open("data/output.txt", "a+")
-data.close()
-data = open ("data/output.txt", "r+")
-if str(data.read()) == "":
-    data.writable()
-    data.write(f"id         username                password          E-mail             date and time \n {line} \n")
-data.close()
 
 os.system(cl())
 a = 5
@@ -57,13 +48,6 @@ if email1 == '' or email2 == '' or email3 == '':
 print(Fore.YELLOW, line, Fore.GREEN)
 send_number = int(input("Enter the number of accounts you want to create(just number): ").strip())
 
-# open selenium driver
-path = ''
-if platform.system() == 'Linux': # select os for chose driver type
-    path = Service('./config/chromedriver')
-elif platform.system() == 'Windows':
-    path = Service('./config/chromedriver.exe')
-
 print (Fore.YELLOW, line, Fore.GREEN)
 # start procses
 for i in range(send_number):
@@ -84,7 +68,7 @@ for i in range(send_number):
     # get use selenium 
     try :
         # set chrome driver
-        driver = webdriver.Chrome(service=path)
+        driver = webdriver.Chrome()
     except :
         print(Fore.RED, "You do not have the required drivers, please download the Selenium driver for Google Chrome from the relevant site or GitHub at: github.com/amirhosin282/account-maker and place it in the main directory of the tool, next to the main file.")
         sleep(10)
@@ -124,11 +108,10 @@ for i in range(send_number):
         ).send_keys(username)
 
         # click on next bottom
-        sleep(2)
         b2 = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[8]/div"))
+            EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div/section/main/div/div/div[1]/div[2]/div/form/div[6]/div"))
         ).click()
-        sleep(5)
+        sleep(10)
 
         # get birthday
         b3 = WebDriverWait(driver, 20).until(
@@ -186,9 +169,7 @@ for i in range(send_number):
         print("\n", Fore.GREEN, "Success", Fore.WHITE, log)
 
         # save log on output file
-        with open("./data/output.txt", "a+") as log_file:
-            log_file.writable()
-            log_file.write(str(log))
+        write_log_excel(account_id, username, password, email, real_date, real_time())
 
         # remove and rebuild number file
         os.remove("./data/.numb.txt")
