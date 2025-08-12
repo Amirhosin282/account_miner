@@ -5,6 +5,7 @@ try:
     from selenium.webdriver.common.by import By
     from selenium.webdriver.support.ui import WebDriverWait
     from selenium.webdriver.support import expected_conditions as EC
+    from selenium.webdriver.chrome.service import Service
     from time import sleep
     from colorama import Fore
     import sys
@@ -73,6 +74,7 @@ def view(a, b): # app banner
 
     print(Fore.RED,'    date time',Fore.GREEN, f"{a} - {b}")
     print(Fore.RED,'    github',Fore.GREEN,' github.com/amirhosin282')
+    print(Fore.RED, "    version", Fore.GREEN, "1.1.1\n")
 
     print(Fore.RED,'    by',Fore.BLUE,' amirhosin282')
 

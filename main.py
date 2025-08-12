@@ -60,6 +60,9 @@ for i in range(send_number):
     with open ("./data/.save_file.txt", "r") as id_file:
         account_id = str(id_file.read())
 
+    log_file_path = open("./data/log.txt", "a+")
+    service = Service(log_output=log_file_path)
+
     # generating username
     username = str(RandomWords().get_random_word() + ac_numb)
     password = "Aa@123456"
@@ -68,9 +71,11 @@ for i in range(send_number):
     # get use selenium 
     try :
         # set chrome driver
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(service=service)
     except :
         print(Fore.RED, "You do not have the required drivers, please download the Selenium driver for Google Chrome from the relevant site or GitHub at: github.com/amirhosin282/account-maker and place it in the main directory of the tool, next to the main file.")
+        with open("./data/log.txt", "a+") as log_file_path:
+            log_file_path.write("\ndriver or browser error, code2\n")
         sleep(10)
         os._exit(0)
 
@@ -185,13 +190,25 @@ for i in range(send_number):
         # close page
         try:
             driver.close()
+            log_file_path.close()
         except:
             pass
 
     except:
+        try:
+            log_file_path.close()
+        except:
+            pass
+
         log = f"{account_id}   {username}              {password}        {email}            {real_date} ----- {real_time()} \n"
+        save_log = f"\n{log}\n"
+
+        # save in log file
+        with open("./data/log.txt", "a+") as log_path:
+            log_path.write(str(save_log))
+
         # show to user
-        print(Fore.RED, "Faild", Fore.WHITE, log)
+        print(Fore.RED, "\nFaild", Fore.WHITE, log)
         try:
             driver.close()
         except:

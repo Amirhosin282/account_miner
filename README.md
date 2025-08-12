@@ -40,6 +40,7 @@ Built just for learning and experimentation — **not for abuse**.
 ├── data/
 │   ├── .numb.txt             # Username number counter
 │   ├── .save_file.txt        # Account ID counter
+│   ├── log.txt               # for saving logs
 │   └── output.xlsx           # Created account logs
 ├── chromedriver              # ChromeDriver for Linux
 ├── chromedriver.exe          # ChromeDriver for Windows
@@ -149,6 +150,7 @@ id         username                password          E-mail             date and
 ├── data/
 │   ├── .numb.txt             # شمارنده نام کاربری
 │   ├── .save_file.txt        # شمارنده آیدی
+│   ├── log.txt               # برای زخیره خطا ها
 │   └── output.xlsx           # خروجی حساب‌ها
 ├── chromedriver.exe          # درایور برای ویندوز
 ├── chromedriver              # درایور برای لینوکس

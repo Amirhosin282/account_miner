@@ -1,3 +1,4 @@
 ./data/output.xlsx
+./data/log.txt
 ./data/.save_file.txt
 ./config/__pycache__
