@@ -9,5 +9,4 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 <br>
 <div align="center">
   <a href = "https://github.com/Amirhosin282/account_miner/blob/main/LICENSE.md"> <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"> </a>
-  <p>This project is now archived</p>
 </div>
