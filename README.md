@@ -88,7 +88,7 @@ python main.py
 > You must **manually solve the CAPTCHA and input the verification code** during each signup — this is intentional for legal and ethical reasons.
 
 > 🌍 **Important Note:**
-> To avoid errors or incomplete signups, **you must change your IP address to Switzerland** using VPN or proxy tools.
+> To avoid errors or incomplete signups, **you must change your IP address to Switzerland or France** using VPN or proxy tools.
 > This is due to regional differences in how Instagram handles account creation.
 
 ---
@@ -198,7 +198,7 @@ python main.py
 > این محدودیت برای رعایت اصول اخلاقی و قوانین پلتفرم‌هاست.
 
 > 🌍 **نکته مهم:**
-> برای عملکرد صحیح و بدون خطا، **آی‌پی خود را به کشور سوئیس تغییر دهید** (با استفاده از VPN یا ابزارهای مشابه).
+> برای عملکرد صحیح و بدون خطا، **آی‌پی خود را به کشور سوئیس و یا فرانسه تغییر دهید** (با استفاده از VPN یا ابزارهای مشابه).
 > به‌دلیل تفاوت در روند ثبت‌نام در کشورهای مختلف، ممکن است در برخی کشورها با خطا روبه‌رو شوید.
 
 ---
