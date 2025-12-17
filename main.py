@@ -61,7 +61,10 @@ for i in range(send_number):
         account_id = str(id_file.read())
 
     log_file_path = open("./data/log.txt", "a+")
-    service = Service(log_output=log_file_path)
+    if cl() == "clear":
+        service = Service(log_output=log_file_path, executable_path= "./chromedriver")
+    elif cl() == "cls":
+        service = Service(log_output=log_file_path, executable_path= "./chromedriver.exe")
 
     # generating username
     username = str(RandomWords().get_random_word() + ac_numb)
@@ -73,7 +76,7 @@ for i in range(send_number):
         # set chrome driver
         driver = webdriver.Chrome(service=service)
     except :
-        print(Fore.RED, "You do not have the required drivers, please download the Selenium driver for Google Chrome from the relevant site or GitHub at: github.com/amirhosin282/account-maker and place it in the main directory of the tool, next to the main file.")
+        print(Fore.RED, "You do not have the required drivers, please download the Selenium driver for Google Chrome from the relevant site or GitHub at: github.com/amirhosin282/account-miner and place it in the main directory of the tool, next to the main file.")
         with open("./data/log.txt", "a+") as log_file_path:
             log_file_path.write("\ndriver or browser error, code2\n")
         sleep(10)

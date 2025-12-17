@@ -74,7 +74,7 @@ def view(a, b): # app banner
 
     print(Fore.RED,'    date time',Fore.GREEN, f"{a} - {b}")
     print(Fore.RED,'    github',Fore.GREEN,' github.com/amirhosin282')
-    print(Fore.RED, "    version", Fore.GREEN, "1.1.2\n")
+    print(Fore.RED, "    version", Fore.GREEN, "1.2.3\n")
 
     print(Fore.RED,'    by',Fore.BLUE,' amirhosin282')
 
